@@ -9,6 +9,8 @@ import {
   TouchableOpacity,
   TouchableHighlight,
   TouchableNativeFeedback,
+  Alert,
+  Button,
 } from "react-native";
 
 console.log("Hello World!");
@@ -20,7 +22,29 @@ export default function App() {
   };
 
   return (
-    <SafeAreaView style={styles.container}></SafeAreaView>
+    <SafeAreaView style={styles.container}>
+      <Button
+        color="orange"
+        title="Click Me!"
+        onPress={
+          () =>
+            // Alert.alert example
+            Alert.alert("My Title", "My Message", [
+              {
+                text: "Yes",
+                onPress: () => console.log("Yes Clicked"),
+              },
+              {
+                text: "No",
+                onPress: () => console.log("No Clicked"),
+              },
+            ])
+
+          // Alert.prompt example ONLY WORK ON IOS
+          // Alert.prompt("My Title", "My Message", (text) => console.log(text))
+        }
+      />
+    </SafeAreaView>
 
     // Text & Image code
     // <SafeAreaView style={styles.container}>
