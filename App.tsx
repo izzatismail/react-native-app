@@ -18,19 +18,33 @@ import {
 
 // View -> UIView
 export default function App() {
-  const orientation = useDeviceOrientation();
-  console.log(orientation);
-
   return (
-    <SafeAreaView style={styles.container}>
+    // Flexbox in RN
+    <View
+      style={{
+        backgroundColor: "#fff",
+        flex: 1, // Grows to take available free space. in this case, 1 = full screen, 0.5 = half screen
+      }}
+    >
       <View
         style={{
           backgroundColor: "dodgerblue",
-          width: "100%", // Can be in percentage
-          height: orientation === "portrait" ? "100%" : "50%", // These numbers are called Density-Independent pixels
+          flex: 2, // 2/4 segments
         }}
       ></View>
-    </SafeAreaView>
+      <View
+        style={{
+          backgroundColor: "gold",
+          flex: 1, // 1/4 segments
+        }}
+      ></View>
+      <View
+        style={{
+          backgroundColor: "tomato",
+          flex: 1, //1/4 segments
+        }}
+      ></View>
+    </View>
   );
 }
 
