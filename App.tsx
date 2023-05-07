@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import {
   StyleSheet,
   Text,
@@ -11,6 +10,8 @@ import {
   TouchableNativeFeedback,
   Alert,
   Button,
+  Platform, // This is used to determine what platfrom it is (either iOS or Android)
+  StatusBar,
 } from "react-native";
 
 console.log("Hello World!");
@@ -23,6 +24,7 @@ export default function App() {
 
   return (
     // There can be multiple style, defined in array -> style={[styles.container], [styles.container]}
+    // Also, SafeAreaView is only for iOS
     <SafeAreaView style={styles.container}>
       <Button
         color="orange"
@@ -78,7 +80,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1, // Boolean, shows whether the view is flexible or not
     backgroundColor: "#fff", // Can be hex, or value
-    justifyContent: "center",
-    alignItems: "center",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
 });
