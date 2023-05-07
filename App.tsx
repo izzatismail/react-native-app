@@ -22,6 +22,7 @@ export default function App() {
   };
 
   return (
+    // There can be multiple style, defined in array -> style={[styles.container], [styles.container]}
     <SafeAreaView style={styles.container}>
       <Button
         color="orange"
@@ -70,6 +71,9 @@ export default function App() {
   // Touchable allows us to set anything in our view touchable (Image for example has no onPress function, so use touchable)
 }
 
+// This is actually just a JS object
+// 1- This method validates the property we used
+// 2- RN is working on optimization, recommended practice
 const styles = StyleSheet.create({
   container: {
     flex: 1, // Boolean, shows whether the view is flexible or not
